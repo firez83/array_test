@@ -8,17 +8,24 @@ public class int_q {
     private int q_pointer;
     private int [] q_array;
 
-    void int_q(int q_size){
+    int_q(int q_size){
         q_array = new int [q_size];
         this.q_size = q_size;
+        q_pointer = 0;
     }
 
     public boolean push (int value){
+        if (q_pointer>(q_size-1)) return false;
+        q_array[q_pointer]=value;
+        q_pointer++;
         return true;
     }
 
     public int pop (){
-        return 0;
+        if (q_pointer > 0){
+            q_pointer--;
+            return q_array[q_pointer];
+        } else return 0;
     }
 
     public int get_size (){
@@ -26,7 +33,10 @@ public class int_q {
     }
 
     public void print_q (){
-
+        int i;
+        for (i=0;i<q_pointer;i++)
+            System.out.print(q_array[i] + " ");
+        System.out.print("\n");
     }
 
 }
