@@ -22,9 +22,15 @@ public class int_q {
     }
 
     public int pop (){
+        int res = q_array[0];
+
+        int i;
+        for (i=0;i<(q_pointer-1);i++)
+            q_array[i]=q_array[i+1];
+
         if (q_pointer > 0){
             q_pointer--;
-            return q_array[q_pointer];
+            return res;
         } else return 0;
     }
 
@@ -34,7 +40,7 @@ public class int_q {
 
     public void print_q (){
         int i;
-        for (i=0;i<q_pointer;i++)
+        for (i=q_pointer-1;i>=0;i--)
             System.out.print(q_array[i] + " ");
         System.out.print("\n");
     }
